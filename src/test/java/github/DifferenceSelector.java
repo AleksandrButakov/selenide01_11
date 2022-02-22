@@ -61,7 +61,6 @@ public class DifferenceSelector {
         } catch (com.codeborne.selenide.ex.ElementNotFound e) {
             System.out.println("Element not found :-(");
         }
-
     }
 
 }
