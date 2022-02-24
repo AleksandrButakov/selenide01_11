@@ -1,19 +1,20 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SoftAssertion {
+
     // locators
     private SelenideElement
             titlePage = $("#js-repo-pjax-container").$("a.url"),
             tabWiki = $("#wiki-tab"),
-            // linkSoftAssertion = $(".markdown-body").$("ul").$("li").$("a.internal");
-            linkSoftAssertion = $(".markdown-body").$(byText("Soft assertions"));
+            linkSoftAssertion = $(".markdown-body").$(byText("Soft assertions")),
+            junit5Text = $(byAttribute("start","3"));
 
     // открытие страницы
     public SoftAssertion openPage() {
@@ -35,12 +36,19 @@ public class SoftAssertion {
 
     // проверка наличия ссылки на Soft assertion
     public SoftAssertion checkSoftAssertionPage() {
+        linkSoftAssertion.shouldHave(text("Soft assertion"));
+        return this;
+    }
 
-        //linkSoftAssertion.click();
-        sleep(1000);
-        //linkSoftAssertion.click();
-        System.out.println("Атрибут href: " + linkSoftAssertion.getAttribute("href"));
-        System.out.println("Атрибут href: " + linkSoftAssertion.getText());
+    // клик по ссылке Soft assertion
+    public SoftAssertion clickSoftAssertion() {
+        linkSoftAssertion.click();
+        return this;
+    }
+
+    // проверка наличия кода JUnit5
+    public SoftAssertion checkCodeJunit5() {
+        junit5Text.should(text("JUnit5"));
         return this;
     }
 

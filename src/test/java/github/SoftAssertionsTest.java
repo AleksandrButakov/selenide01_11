@@ -1,12 +1,10 @@
 package github;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.SoftAssertion;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -29,20 +27,14 @@ public class SoftAssertionsTest {
 
     @Test
     void setSoftAssertion() {
-        // откроем страницу Selenide в Github
-        softAssertion.openPage();
 
-        // проверим что открылась нужная страница
-        softAssertion.checkPage(titlePage);
-
-        // перейти в раздел Wiki проекта
-        softAssertion.openWikiPage();
-
-        // убедиться что в списке страниц (Pages) есть страница SoftAssertions
-        softAssertion.checkSoftAssertionPage();
-
-        // откроем страницу SoftAssertions, проверим что внутри есть пример кода для JUnit5
-
+        softAssertion
+                .openPage()                             // откроем страницу Selenide в Github
+                .checkPage(titlePage)                   // проверим что открылась нужная страница
+                .openWikiPage()                         // перейти в раздел Wiki проекта
+                .checkSoftAssertionPage()  // убедиться что в списке есть страница SoftAssertions
+                .clickSoftAssertion()      // откроем SoftAssertions, проверим что есть код JUnit5
+                .checkCodeJunit5();
 
         // 3. (опциональное) Запрограммируем Drag&Drop с помощью Selenide.actions()
 
