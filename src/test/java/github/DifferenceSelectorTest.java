@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class DifferenceSelector {
+public class DifferenceSelectorTest {
 
     String h1SpaceClass, h1DotClass;
 

@@ -7,47 +7,47 @@ import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SoftAssertion {
+public class SoftAssertionPage {
 
     // locators
     private SelenideElement
             titlePage = $("#js-repo-pjax-container").$("a.url"),
             tabWiki = $("#wiki-tab"),
             linkSoftAssertion = $(".markdown-body").$(byText("Soft assertions")),
-            junit5Text = $(byAttribute("start","3"));
+            junit5Text = $(byAttribute("start", "3"));
 
     // открытие страницы
-    public SoftAssertion openPage() {
+    public SoftAssertionPage openPage() {
         open("/selenide/selenide");
         return this;
     }
 
     // проверка открытия страницы selenide
-    public SoftAssertion checkPage(String value) {
+    public SoftAssertionPage checkPage(String value) {
         titlePage.shouldHave(text("selenide"));
         return this;
     }
 
     // клик по вкладке Wiki
-    public SoftAssertion openWikiPage() {
+    public SoftAssertionPage openWikiPage() {
         tabWiki.click();
         return this;
     }
 
     // проверка наличия ссылки на Soft assertion
-    public SoftAssertion checkSoftAssertionPage() {
+    public SoftAssertionPage checkSoftAssertionPage() {
         linkSoftAssertion.shouldHave(text("Soft assertion"));
         return this;
     }
 
     // клик по ссылке Soft assertion
-    public SoftAssertion clickSoftAssertion() {
+    public SoftAssertionPage clickSoftAssertion() {
         linkSoftAssertion.click();
         return this;
     }
 
     // проверка наличия кода JUnit5
-    public SoftAssertion checkCodeJunit5() {
+    public SoftAssertionPage checkCodeJunit5() {
         junit5Text.should(text("JUnit5"));
         return this;
     }
