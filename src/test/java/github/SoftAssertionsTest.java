@@ -29,12 +29,39 @@ public class SoftAssertionsTest {
 
     @Test
     void setSoftAssertion() {
+        // откроем страницу Selenide в Github
         softAssertion.openPage();
-        // проверим страницу
+
+        // проверим что открылась нужная страница
         softAssertion.checkPage(titlePage);
 
-        //System.out.println($("#js-repo-pjax-container").$("a.url").getText());
-    }
+        // перейти в раздел Wiki проекта
+        softAssertion.openWikiPage();
 
+        // убедиться что в списке страниц (Pages) есть страница SoftAssertions
+        softAssertion.checkSoftAssertionPage();
+
+        // откроем страницу SoftAssertions, проверим что внутри есть пример кода для JUnit5
+
+
+        // 3. (опциональное) Запрограммируем Drag&Drop с помощью Selenide.actions()
+
+
+        // Откройем https://the-internet.herokuapp.com/drag_and_drop
+
+
+        // перенесем прямоугольник А на место В
+
+
+        // проверим что прямоугольники действительно поменялись
+
+
+        /* P.S. В Selenide есть команда $(element).dragAndDrop($(to-element)), проверьте работает ли тест, если использовать её вместо actions()
+         * (раньше не работала из-за ошибки в ChromeDriver, но может быть уже починили? :-)).
+         * Если работает - сообщите в группе курса.
+         */
+
+
+    }
 
 }
