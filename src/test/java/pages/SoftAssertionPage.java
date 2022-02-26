@@ -24,7 +24,7 @@ public class SoftAssertionPage {
 
     // проверка открытия страницы selenide
     public SoftAssertionPage checkPage(String value) {
-        titlePage.shouldHave(text("selenide"));
+        titlePage.shouldHave(text(value));
         return this;
     }
 
@@ -48,7 +48,7 @@ public class SoftAssertionPage {
 
     // проверка наличия кода JUnit5
     public SoftAssertionPage checkCodeJunit5() {
-        junit5Text.should(text("JUnit5"));
+        junit5Text.shouldHave(text("JUnit5"));
         return this;
     }
 
